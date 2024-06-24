@@ -33,22 +33,22 @@ jobs:
     - name: archive test results
       uses: actions/upload-artifact@v3
       with: 
-          name: test-results
+          name: Capstone Test Result XML
           path: '**/target/surefire-reports/*.xml'
 
     - name: Cucumber Capstone Test Report
       uses: actions/upload-artifact@v3
       with: 
-          name: Capstone Cucumber Test Results
+          name: Capstone Cucumber Test Results HTML
           path: 'target/html-reports'
 
     - name: Capstone Automation Execution Report PDF
       uses: actions/upload-artifact@v3
       with: 
-          name: Capstone Automation Test Results
+          name: Capstone Automation Test Results PDF
           path: 'test-output/PdfReport'
 
-    - name: Capstone Automation Functional Report 
+    - name: Capstone Automation Functional Spark Report
       uses: actions/upload-artifact@v3
       with: 
           name: Capstone Functional Test Results
