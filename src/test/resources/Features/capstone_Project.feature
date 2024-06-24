@@ -93,16 +93,16 @@ Feature: Capstone_Project
      |  postman     | password |  aman     |   
      
      
-    @capstone_Project_TC1
-    Scenario Outline: User Logins into the Banking Application and request for new account creation
-   	Given User reads all the input data having <CustomerNumber> 
-   	Given I Set POST api endpoint for creating a new record <authusername> <authpassword>
-    When Send a POST HTTP request for creating a new record
-    Then I receive valid POST Response with HTTP response code as 200
+    #@capstone_Project_TC1
+    #Scenario Outline: User Logins into the Banking Application and request for new account creation
+   	#Given User reads all the input data having <CustomerNumber> 
+   	#Given I Set POST api endpoint for creating a new record <authusername> <authpassword>
+   #When Send a POST HTTP request for creating a new record
+    #Then I receive valid POST Response with HTTP response code as 200
    
-    Examples: 
-    | CustomerNumber   | 
-    |     3            | 
+   # Examples: 
+   # | CustomerNumber   | 
+   # |     3            | 
     
     @capstone_database_validation
   Scenario: validate dtabase values

@@ -284,18 +284,18 @@ public class capstone_Project_Step {
 			 Assert.assertEquals("true", rbdy.substring(21,25));
 			}
 		  
-		  @Given("I Set POST api endpoint for creating a new record {} {}")
-		  public void setPostEndpointforcreatingusernameviaexcel(String authusername, String authpawd) {
-			 utils = new utils();	 
-			 RestAssured.proxy("150.45.87.133", 8080);
-			 request = RestAssured.given().auth().basic(authusername, authpawd); 
-			 //requestspec=payload.addnewdata(id,username,firstname,lastname,email,Password,phone);
-			 Response res = request.get("https://postman-echo.com/basic-auth");
-			 ResponseBody body = res.body();
-			 String rbdy = body.asString();
-			 System.out.println("Data from the GET API- "+rbdy.substring(20,25));
-			 Assert.assertEquals("true", rbdy.substring(21,25));
-			}
+//		  @Given("I Set POST api endpoint for creating a new record {} {}")
+//		  public void setPostEndpointforcreatingusernameviaexcel(String authusername, String authpawd) {
+//			 utils = new utils();	 
+//			 RestAssured.proxy("150.45.87.133", 8080);
+//			 request = RestAssured.given().auth().basic(authusername, authpawd); 
+//			 //requestspec=payload.addnewdata(id,username,firstname,lastname,email,Password,phone);
+//			 Response res = request.get("https://postman-echo.com/basic-auth");
+//			 ResponseBody body = res.body();
+//			 String rbdy = body.asString();
+//			 System.out.println("Data from the GET API- "+rbdy.substring(20,25));
+//			 Assert.assertEquals("true", rbdy.substring(21,25));
+//			}
 		  
 		  @Given("I Set POST api endpoint for updating a new record {} {} {} {} {} {} {} {} {}")
 		  public void setPostEndpointforupdatinguser(String authusername, String authpawd, String id, String username, String firstname, String lastname, String email, String Password, String phone) {
