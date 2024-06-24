@@ -29,3 +29,28 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+
+    - name: archive test results
+      uses: actions/upload-artifact@v3
+      with: 
+          name: test-results
+          path: '**/target/surefire-reports/*.xml'
+
+    - name: Cucumber test reposrt
+      uses: actions/upload-artifact@v3
+      with: 
+          name: cucumber test-results
+          path: 'target/html-reports'
+
+    - name: DPMM Automation Execution Report PDF
+      uses: actions/upload-artifact@v3
+      with: 
+          name: DPPM automation test-results
+          path: 'test-output/PdfReport'
+
+    - name: DPMM Automation Functional Report 
+      uses: actions/upload-artifact@v3
+      with: 
+          name: DPPM Functional test-results
+          path: 'test-output/SparkReport'
+       
