@@ -36,21 +36,21 @@ jobs:
           name: test-results
           path: '**/target/surefire-reports/*.xml'
 
-    - name: Cucumber test reposrt
+    - name: Cucumber Capstone Test Report
       uses: actions/upload-artifact@v3
       with: 
-          name: cucumber test-results
+          name: Capstone Cucumber Test Results
           path: 'target/html-reports'
 
-    - name: DPMM Automation Execution Report PDF
+    - name: Capstone Automation Execution Report PDF
       uses: actions/upload-artifact@v3
       with: 
-          name: DPPM automation test-results
+          name: Capstone Automation Test Results
           path: 'test-output/PdfReport'
 
-    - name: DPMM Automation Functional Report 
+    - name: Capstone Automation Functional Report 
       uses: actions/upload-artifact@v3
       with: 
-          name: DPPM Functional test-results
+          name: Capstone Functional Test Results
           path: 'test-output/SparkReport'
        
