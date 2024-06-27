@@ -10,8 +10,6 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeDriverService;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import Pages.capstone_Project_UI_EXCEL_DB_Page;
@@ -144,22 +142,35 @@ public class hooks {
  		return driverc;
  	}
     
-    public EdgeDriver startedgeBrowser_google_edge() throws IOException, InterruptedException {
+    public EdgeDriver startedgeBrowser_google_edge() throws IOException {
 		String projectPath = System.getProperty("user.dir");
 		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");	
-		Thread.sleep(500);
-		driver = new EdgeDriver();
-		System.setProperty("webdriver.edge.verboseLogging", "true");
-		EdgeDriverService service = EdgeDriverService.createDefaultService();
-
-		EdgeDriver driver = new EdgeDriver(service);
-		
-		
+		try {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
+			Thread.sleep(500);
+			driver = new EdgeDriver();
+		} catch (Exception e) {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");   
+		}
+		try
+		{
 		driver.navigate().to("http://google.com");
+		}catch (Exception e) {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
+		}
 		driver.manage().window().maximize();
 		page = new capstone_Project_UI_EXCEL_DB_Page(driver);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		try
+		{
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		}catch (Exception e) {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
+		}
 		return driver;
 	}
      
