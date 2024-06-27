@@ -6,11 +6,12 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriverService;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import Pages.capstone_Project_UI_EXCEL_DB_Page;
@@ -34,13 +35,12 @@ public class hooks {
 	String[] salutation_a,first_name_a,middle_name_a,last_name_a,dob_a,address_a,email_id_a,contact_code_a,contact_number_a,user_id_a,security_question_a,security_answer_a,user_name_a,password_read_a;
 	String[] customer_number_a, customer_id_a, account_type_a, state_a, city_a, branch_a, regisstatus_a;;
 	
-    //EdgeDriver driver = null;
+    EdgeDriver driver = null;
     ChromeDriver driverc = null;
-    WebDriver driver;
     
     private Scenario takescreenshot;
 	
-    public WebDriver startedgeBrowser_in_essence() throws IOException {
+    public EdgeDriver startedgeBrowser_in_essence() throws IOException {
 		String projectPath = System.getProperty("user.dir");
 		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");	
 		try {
@@ -144,36 +144,22 @@ public class hooks {
  		return driverc;
  	}
     
-    public WebDriver startedgeBrowser_google_edge() throws IOException {
+    public EdgeDriver startedgeBrowser_google_edge() throws IOException, InterruptedException {
 		String projectPath = System.getProperty("user.dir");
 		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");	
-		try {
-			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
-			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
-			Thread.sleep(500);
-			//driver = new EdgeDriver();
-			 driver= new EdgeDriver();
-		} catch (Exception e) {
-			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
-			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");   
-		}
-		try
-		{
+		Thread.sleep(500);
+		driver = new EdgeDriver();
+		System.setProperty("webdriver.edge.verboseLogging", "true");
+		EdgeDriverService service = EdgeDriverService.createDefaultService();
+
+		EdgeDriver driver = new EdgeDriver(service);
+		
+		
 		driver.navigate().to("http://google.com");
-		}catch (Exception e) {
-			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
-			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
-		}
 		driver.manage().window().maximize();
 		page = new capstone_Project_UI_EXCEL_DB_Page(driver);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		try
-		{
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-		}catch (Exception e) {
-			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
-			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
-		}
 		return driver;
 	}
      
@@ -668,15 +654,15 @@ public class hooks {
 //	    }
 	
 	
-		@After
-	    public void afterScenario(){
-			if (this.driver==null)
-			{
-			
-			}
-			else {
-			driver.close();
-	        driver.quit();
-			}
-	  }
+//		@After
+//	    public void afterScenario(){
+//			if (this.driver==null)
+//			{
+//			
+//			}
+//			else {
+//			driver.close();
+//	        driver.quit();
+//			}
+//	  }
 }

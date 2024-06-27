@@ -2,8 +2,6 @@ package StepDefinitions;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.sql.SQLException;
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -24,7 +22,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.response.Response;
 
 public class capstone_Project_UI_EXCEL_DB_Step {
-		WebDriver driver;
+	protected EdgeDriver driver;
 		//ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
@@ -131,8 +129,8 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		
 		@Then("User launches external google ui website")
 		public void user_launches_google_ui() throws InterruptedException, IOException {
-			//utils = new utils(driver);
-			page = new capstone_Project_UI_EXCEL_DB_Page(driver);
+			utils = new utils(driver);
+			hooks = new hooks();
 			driver = hooks.startedgeBrowser_google_edge();
 		}
 		

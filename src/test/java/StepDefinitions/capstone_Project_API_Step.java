@@ -3,6 +3,8 @@ import java.io.IOException;
 
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
 import Pages.capstone_Project_UI_EXCEL_DB_Page;
 import Utilities.hooks;
 import Utilities.utils;
@@ -22,8 +24,8 @@ import io.restassured.response.ResponseBody;
 import io.restassured.path.json.JsonPath;
 
 public class capstone_Project_API_Step {
-		//EdgeDriver driver;
-		ChromeDriver driver;
+		EdgeDriver driver;
+		//ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;
@@ -51,7 +53,19 @@ public class capstone_Project_API_Step {
 		
     	/*-------------------------------------API--------------------------------------------*/
 
-		@Given("For getting the pet details user provides the authentication details for {} {}")
+		
+    	@Before 
+    	public void beforescenario()
+    	{
+    		String projectPath = System.getProperty("user.dir");
+    		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");
+    		//driver = new EdgeDriver();
+    		//driver.close();
+    	    //driver.quit();
+    		// driver = new ChromeDriver(chromeOptions);
+    	}
+    	
+    	@Given("For getting the pet details user provides the authentication details for {} {}")
 		public void UsersetsAuthorizationDetails(String userid,String password) {  	
 		utils = new utils();
 		//RestAssured.proxy("150.45.87.133", 8080);
