@@ -34,7 +34,7 @@ public class hooks {
 	String[] customer_number_a, customer_id_a, account_type_a, state_a, city_a, branch_a, regisstatus_a;;
 	
     EdgeDriver driver = null;
-    ChromeDriver driverc = null;
+    ChromeDriver driverc;
     
     private Scenario takescreenshot;
 	
