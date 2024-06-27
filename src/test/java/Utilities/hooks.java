@@ -40,21 +40,21 @@ public class hooks {
 	
     public EdgeDriver startedgeBrowser_in_essence() throws IOException {
 		String projectPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_124.exe");	
+		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");	
 		try {
-			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_124.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
 			Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
 			Thread.sleep(500);
 			driver = new EdgeDriver();
 		} catch (Exception e) {
-			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_124.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
 			Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");   
 		}
 		try
 		{
 		driver.navigate().to("http://10.82.180.36/Common/HomePage.aspx");
 		}catch (Exception e) {
-			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_124.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
 			Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
 		}
 		driver.manage().window().maximize();
@@ -64,7 +64,7 @@ public class hooks {
 		{
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		}catch (Exception e) {
-			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_124.exe");
+			Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
 			Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
 		}
 		return driver;
@@ -141,6 +141,38 @@ public class hooks {
  		}
  		return driverc;
  	}
+    
+    public EdgeDriver startedgeBrowser_google_edge() throws IOException {
+		String projectPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");	
+		try {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
+			Thread.sleep(500);
+			driver = new EdgeDriver();
+		} catch (Exception e) {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");   
+		}
+		try
+		{
+		driver.navigate().to("http://google.com");
+		}catch (Exception e) {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
+		}
+		driver.manage().window().maximize();
+		page = new capstone_Project_UI_EXCEL_DB_Page(driver);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		try
+		{
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		}catch (Exception e) {
+			//Runtime.getRuntime().exec("taskkill /F /IM msedgedriver_126.exe");
+			//Runtime.getRuntime().exec("taskkill /IM msedge.exe /F");
+		}
+		return driver;
+	}
      
     public String genarate_unique_username() throws IOException, InterruptedException {
     	double num = Math.floor(Math.random()*89999999+10000000);
@@ -635,13 +667,13 @@ public class hooks {
 	
 		@After
 	    public void afterScenario(){
-			if (this.driverc==null)
+			if (this.driver==null)
 			{
 			
 			}
 			else {
-			driverc.close();
-	        driverc.quit();
+			driver.close();
+	        driver.quit();
 			}
 	  }
 }

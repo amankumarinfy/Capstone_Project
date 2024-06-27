@@ -22,8 +22,8 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.response.Response;
 
 public class capstone_Project_UI_EXCEL_DB_Step {
-		EdgeDriver driver_E;
-		ChromeDriver driver;
+		EdgeDriver driver;
+		//ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;
@@ -124,13 +124,13 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		
 		@Then("User launches the In Essence banking application")
 		public void user_launches_inessence_application() throws InterruptedException, IOException {
-			driver = hooks.startBrowser_in_essence_chrome();
+			//driver = hooks.startBrowser_in_essence_chrome();
 		}
 		
 		@Then("User launches external google ui website")
 		public void user_launches_google_ui() throws InterruptedException, IOException {
 			//utils = new utils(driver);
-			driver = hooks.startBrowser_google_chrome();
+			driver = hooks.startedgeBrowser_google_edge();
 		}
 		
 		@When("User provides username and password")
