@@ -125,6 +125,7 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		
 		@Then("User launches external google ui website")
 		public void user_launches_google_ui() throws InterruptedException, IOException {
+			//utils = new utils(driver);
 			driver = hooks.startBrowser_google_chrome();
 		}
 			

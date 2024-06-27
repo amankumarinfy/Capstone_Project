@@ -67,7 +67,7 @@ public class capstone_Project_API_Step {
 		  @Given("For getting the user details user provides the authentication details for {} {}")
 		  public void UserprovidesAuthorizationDetails(String userid,String password) {  	
 		  utils = new utils();
-		  //RestAssured.proxy("150.45.87.133", 8080);
+		  RestAssured.proxy("150.45.87.133", 8080);
 		  request = RestAssured.given().auth().basic(userid, password); 
 		  Response res = request.get("https://postman-echo.com/basic-auth");
 		  ResponseBody<?> body = res.body();
