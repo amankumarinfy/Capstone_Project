@@ -47,7 +47,7 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		public void embedScreenshotStep(Scenario scenario) {
 			String projectPath = System.getProperty("user.dir");
 			System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");	
-			driver = new EdgeDriver();
+			//driver = new EdgeDriver();
 		hooks = new hooks();
 		hooks.embedScreenshotStep(scenario);
 		}
