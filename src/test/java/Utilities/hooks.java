@@ -633,11 +633,15 @@ public class hooks {
 //	    }
 	
 	
-	
-	@After
-	public void afterScenario() 
-		{
-			driver.close();
-			driver.quit();
-		}
+		@After
+	    public void afterScenario(){
+			if (this.driverc==null)
+			{
+			
+			}
+			else {
+			driverc.close();
+	        driverc.quit();
+			}
+	  }
 }
