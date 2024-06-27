@@ -33,7 +33,7 @@ public class hooks {
 	String[] salutation_a,first_name_a,middle_name_a,last_name_a,dob_a,address_a,email_id_a,contact_code_a,contact_number_a,user_id_a,security_question_a,security_answer_a,user_name_a,password_read_a;
 	String[] customer_number_a, customer_id_a, account_type_a, state_a, city_a, branch_a, regisstatus_a;;
 	
-    EdgeDriver driver = null;
+    EdgeDriver driver ;
     ChromeDriver driverc = null;
     
     private Scenario takescreenshot;
