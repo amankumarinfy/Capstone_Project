@@ -141,3 +141,4 @@ Feature: Capstone_Project_UI
    @capstone_Project_extui
    Scenario: User Logins into the Banking Application and request for new account creation
    Given User launches external google ui website
+   When User provides username and password

@@ -15,6 +15,7 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.core.logging.Logger;
 import io.cucumber.core.logging.LoggerFactory;
 import io.restassured.specification.RequestSpecification;
@@ -44,6 +45,9 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		
 		@Before()
 		public void embedScreenshotStep(Scenario scenario) {
+		//String projectPath = System.getProperty("user.dir");
+	 	//System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/Drivers/chromedriver_126.exe");
+
 		hooks = new hooks();
 		hooks.embedScreenshotStep(scenario);
 		}
@@ -127,6 +131,11 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		public void user_launches_google_ui() throws InterruptedException, IOException {
 			//utils = new utils(driver);
 			driver = hooks.startBrowser_google_chrome();
+		}
+		
+		@When("User provides username and password")
+		public void user_logs_into_parts_availability_screen() throws InterruptedException {
+			page = new capstone_Project_UI_EXCEL_DB_Page(driver);
 		}
 			
 		@And("User clicks on Login button to navigate to Login screen")
