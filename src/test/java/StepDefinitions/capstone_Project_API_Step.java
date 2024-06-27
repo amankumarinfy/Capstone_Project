@@ -23,7 +23,7 @@ import io.restassured.path.json.JsonPath;
 
 public class capstone_Project_API_Step {
 		//EdgeDriver driver;
-		ChromeDriver driver = null;
+		ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;

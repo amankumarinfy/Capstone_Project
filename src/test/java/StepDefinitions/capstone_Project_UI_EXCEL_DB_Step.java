@@ -22,7 +22,7 @@ import io.restassured.response.Response;
 
 public class capstone_Project_UI_EXCEL_DB_Step {
 		EdgeDriver driver_E;
-		ChromeDriver driver = null;
+		ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;
