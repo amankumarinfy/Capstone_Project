@@ -113,21 +113,21 @@ public class hooks {
  		System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/Drivers/chromedriver_126.exe");
 
  		try {
- 			Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
- 			Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
+ 			//Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+ 			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
  			Thread.sleep(500);
  			driverc = new ChromeDriver(options);
  		} catch (Exception e) { 
- 			Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
- 			Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
+ 			//Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+ 			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
  		}
 
  		try
  		{
  			driverc.navigate().to("http://google.com");
  		}catch (Exception e) {
- 			Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
- 			Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
+ 			//Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+ 			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
  		}
  		driverc.manage().window().maximize();
  		page = new capstone_Project_UI_EXCEL_DB_Page(driverc);
@@ -136,8 +136,8 @@ public class hooks {
  		{
  			driverc.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
  		}catch (Exception e) {
- 			Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
- 			Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
+ 			//Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
+ 			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
  		}
  		return driverc;
  	}
