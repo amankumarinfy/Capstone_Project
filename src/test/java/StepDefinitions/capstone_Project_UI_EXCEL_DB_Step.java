@@ -2,6 +2,8 @@ package StepDefinitions;
 import java.awt.AWTException;
 import java.io.IOException;
 import java.sql.SQLException;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -22,7 +24,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.response.Response;
 
 public class capstone_Project_UI_EXCEL_DB_Step {
-		EdgeDriver driver;
+		WebDriver driver;
 		//ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
