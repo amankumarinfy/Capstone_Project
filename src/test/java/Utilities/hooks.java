@@ -34,7 +34,7 @@ public class hooks {
 	String[] customer_number_a, customer_id_a, account_type_a, state_a, city_a, branch_a, regisstatus_a;;
 	
     EdgeDriver driver = null;
-    ChromeDriver driverc;
+    ChromeDriver driverc = null;
     
     private Scenario takescreenshot;
 	
@@ -107,7 +107,7 @@ public class hooks {
 	}
     
     public ChromeDriver startBrowser_google_chrome() throws IOException {
- 		ChromeOptions options= new ChromeOptions();
+ 		//ChromeOptions options= new ChromeOptions();
  		//options.addArguments("--incognito");
  		String projectPath = System.getProperty("user.dir");
  		System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/Drivers/chromedriver_126.exe");
@@ -116,7 +116,7 @@ public class hooks {
  			//Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
  			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
  			Thread.sleep(500);
- 			driverc = new ChromeDriver(options);
+ 			driverc = new ChromeDriver();
  		} catch (Exception e) { 
  			//Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
  			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
