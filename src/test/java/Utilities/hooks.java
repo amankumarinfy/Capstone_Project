@@ -230,7 +230,7 @@ public class hooks {
         		if(this.driverc!=null)
         			{
         				byte[] screenshot = ((TakesScreenshot)driverc).getScreenshotAs(OutputType.BYTES);
-        				takescreenshot.embed(screenshot, "image/png");
+        				//takescreenshot.embed(screenshot, "image/png");
         			}
         	else if (this.driverc==null)
         			{
