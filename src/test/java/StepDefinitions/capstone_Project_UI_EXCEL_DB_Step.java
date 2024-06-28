@@ -131,7 +131,7 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		
 		@Then("User launches the In Essence banking application")
 		public void user_launches_inessence_application() throws InterruptedException, IOException {
-			//driver = hooks.startBrowser_in_essence_chrome();
+			driver = hooks.startBrowser_in_essence_chrome();
 		}
 		
 		@Then("User launches external google ui website")

@@ -817,7 +817,7 @@ int p;
 		driver.findElement(By.xpath("//body")).click();
 		
 		String first_handle = driver.getWindowHandle();
-		new WebDriverWait(driver,5).until(ExpectedConditions.numberOfWindowsToBe(2));
+		//WebDriverWait(driver,5).until(ExpectedConditions.numberOfWindowsToBe(2));
 		Set<String> allHandles = driver.getWindowHandles();
 		for(String winHandle:allHandles)
 		{
