@@ -25,8 +25,8 @@ import io.restassured.response.Response;
 
 public class capstone_Project_UI_EXCEL_DB_Step {
 	//protected EdgeDriver driver;
-	//protected ChromeDriver driver;
-	protected WebDriver driver;
+	protected ChromeDriver driver;
+	protected WebDriver driverw;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;
@@ -54,7 +54,7 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 			String projectPath = System.getProperty("user.dir");
 	 		System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/Drivers/chromedriver_126.exe");
 
-			//driver = new EdgeDriver();
+			//driverw = new WebDriver();
 		hooks = new hooks();
 		hooks.embedScreenshotStep(scenario);
 		}
@@ -138,7 +138,7 @@ public class capstone_Project_UI_EXCEL_DB_Step {
 		public void user_launches_google_ui() throws InterruptedException, IOException {
 			//utils = new utils(driver);
 			hooks = new hooks();
-			driver = hooks.startBrowser_google_chrome_n();
+			driverw = hooks.startBrowser_google_chrome_n();
 		}
 		
 		@When("User provides username and password")
