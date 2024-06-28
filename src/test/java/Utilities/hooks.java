@@ -154,7 +154,7 @@ public class hooks {
         ChromeOptions options = new ChromeOptions();
           //options.addArguments("--no-sandbox");
           //options.addArguments("--disable-dev-shm-usage");
-          //options.addArguments("--headless");
+          options.addArguments("--headless");
           driverw = new ChromeDriver(options);
           driverw.navigate().to("https://google.com");
           driverw.manage().window().maximize();
@@ -226,12 +226,12 @@ public class hooks {
 	public void i_take_a_screenshot() throws Throwable {	
 		try 
 			{
-        		if(this.driverc!=null)
+        		if(this.driverw!=null)
         			{
         				byte[] screenshot = ((TakesScreenshot)driverc).getScreenshotAs(OutputType.BYTES);
         				takescreenshot.embed(screenshot, "image/png");
         			}
-        	else if (this.driverc==null)
+        	else if (this.driverw==null)
         			{
         		
         			}
@@ -686,15 +686,15 @@ public class hooks {
 //	    }
 	
 	
-//		@After
-//	    public void afterScenario(){
-//			if (this.driver==null)
-//			{
-//			
-//			}
-//			else {
-//			driver.close();
-//	        driver.quit();
-//			}
-//	  }
+		@After
+	    public void afterScenario(){
+			if (this.driverw==null)
+			{
+			
+			}
+			else {
+			driverw.close();
+	        driverw.quit();
+			}
+	  }
 }
