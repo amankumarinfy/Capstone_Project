@@ -149,22 +149,18 @@ public class hooks {
  		return driverc;
  	}
     
-    public WebDriver startBrowser_google_chrome_n() throws IOException {
-    	DesiredCapabilities capabilities = new DesiredCapabilities();
-
-    	// ... but only if it supports javascript
-    	capabilities.setJavascriptEnabled(true);
-
-    	// Get a handle to the driver. This will throw an exception
-    	// if a matching driver cannot be located
-    	WebDriver driver = new RemoteWebDriver(capabilities);
-
-    	// Query the driver to find out more information
-    	Capabilities actualCapabilities = ((RemoteWebDriver) driver).getCapabilities();
-
-    	// And now use it
-    	driver.get("http://www.google.com");
-		return driver;
+    public ChromeDriver startBrowser_google_chrome_n() throws IOException {
+    	  WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+          //options.addArguments("--no-sandbox");
+          //options.addArguments("--disable-dev-shm-usage");
+          options.addArguments("--headless");
+          driverc = new ChromeDriver(options);
+          driverc.navigate().to("https://google.com");
+          driverc.manage().window().maximize();
+          driverc.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
+    	  
+		return driverc;
  	}
     
     public EdgeDriver startedgeBrowser_google_edge() throws IOException {
