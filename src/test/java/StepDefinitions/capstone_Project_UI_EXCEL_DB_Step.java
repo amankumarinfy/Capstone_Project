@@ -25,8 +25,8 @@ import io.restassured.response.Response;
 
 public class capstone_Project_UI_EXCEL_DB_Step {
 	//protected EdgeDriver driver;
-	protected ChromeDriver driver;
-	//protected WebDriver driver;
+	//protected ChromeDriver driver;
+	protected WebDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;
