@@ -34,6 +34,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+
+    - uses: browser-actions/setup-chrome@v1
+      with:
+       chrome-version: 126
+       install-dependencies: true
+  
   
     - name: archive test results
       uses: actions/upload-artifact@v3
