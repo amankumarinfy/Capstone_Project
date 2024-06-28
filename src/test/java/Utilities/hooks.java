@@ -41,7 +41,7 @@ public class hooks {
 	
     EdgeDriver driver = null;
     ChromeDriver driverc = null;
-	WebDriver driverw= null;
+	WebDriver driverw;
     
     private Scenario takescreenshot;
 	
