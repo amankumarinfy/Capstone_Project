@@ -155,10 +155,10 @@ public class hooks {
           //options.addArguments("--no-sandbox");
           //options.addArguments("--disable-dev-shm-usage");
           options.addArguments("--headless");
-          driverc = new ChromeDriver(options);
-          driverc.navigate().to("https://google.com");
-          driverc.manage().window().maximize();
-          driverc.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
+          driverw = new ChromeDriver(options);
+          driverw.navigate().to("https://google.com");
+          driverw.manage().window().maximize();
+          driverw.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
     	  
 		return driverc;
  	}
