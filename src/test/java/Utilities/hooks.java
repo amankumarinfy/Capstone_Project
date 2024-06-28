@@ -22,7 +22,6 @@ import Pages.capstone_Project_UI_EXCEL_DB_Page;
 import io.restassured.response.Response;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -151,15 +150,21 @@ public class hooks {
  	}
     
     public WebDriver startBrowser_google_chrome_n() throws IOException {
-    	 DesiredCapabilities abilities = DesiredCapabilities.firefox();
-         //capabillities.setCapability("version", "16");
-         //capabillities.setCapability("platform", Platform.WINDOWS);
-         //capabillities.setCapability("name", "Testing Selenium-2 Remote WebDriver");
+    	DesiredCapabilities capabilities = new DesiredCapabilities();
 
-         driverw = new RemoteWebDriver( new URL("http://google.com"), abilities);
-         driverw.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-         driverw.manage().window().maximize();
-		return driverw;
+    	// ... but only if it supports javascript
+    	capabilities.setJavascriptEnabled(true);
+
+    	// Get a handle to the driver. This will throw an exception
+    	// if a matching driver cannot be located
+    	WebDriver driver = new RemoteWebDriver(capabilities);
+
+    	// Query the driver to find out more information
+    	Capabilities actualCapabilities = ((RemoteWebDriver) driver).getCapabilities();
+
+    	// And now use it
+    	driver.get("http://www.google.com");
+		return driver;
  	}
     
     public EdgeDriver startedgeBrowser_google_edge() throws IOException {
