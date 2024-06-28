@@ -4,14 +4,20 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import Pages.capstone_Project_UI_EXCEL_DB_Page;
 import io.restassured.response.Response;
 
@@ -35,6 +41,7 @@ public class hooks {
 	
     EdgeDriver driver = null;
     ChromeDriver driverc = null;
+	WebDriver driverw= null;
     
     private Scenario takescreenshot;
 	
@@ -140,6 +147,35 @@ public class hooks {
  			//Runtime.getRuntime().exec("taskkill /IM chrome.exe /F");
  		}
  		return driverc;
+ 	}
+    
+    public WebDriver startBrowser_google_chrome_n() throws IOException {
+    	  //WebDriverManager.chromedriver().setup();
+//          ChromeOptions options = new ChromeOptions();
+//          options.addArguments("--no-sandbox");
+//          options.addArguments("--disable-dev-shm-usage");
+//          options.addArguments("--headless");
+//          driverc = new ChromeDriver(options);
+//          driverc.navigate().to("https://google.com");
+//          driverc.manage().window().maximize();
+//          driverc.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
+    	  
+    	  DesiredCapabilities capabilities = new DesiredCapabilities();
+
+    	// ... but only if it supports javascript
+    	capabilities.setJavascriptEnabled(true);
+
+    	// Get a handle to the driver. This will throw an exception
+    	// if a matching driver cannot be located
+    	WebDriver driver = new RemoteWebDriver(capabilities);
+
+    	// Query the driver to find out more information
+    	Capabilities actualCapabilities = ((RemoteWebDriver) driver).getCapabilities();
+
+    	// And now use it
+    	driver.get("http://www.google.com");
+          //return driverw;
+		return driver;
  	}
     
     public EdgeDriver startedgeBrowser_google_edge() throws IOException {

@@ -24,8 +24,8 @@ import io.restassured.response.ResponseBody;
 import io.restassured.path.json.JsonPath;
 
 public class capstone_Project_API_Step {
-		EdgeDriver driver;
-		//ChromeDriver driver;
+		//EdgeDriver driver;
+		ChromeDriver driver;
 		utils utils;
 		capstone_Project_UI_EXCEL_DB_Page page;
 		hooks hooks;
@@ -57,8 +57,12 @@ public class capstone_Project_API_Step {
     	@Before 
     	public void beforescenario()
     	{
+    		//String projectPath = System.getProperty("user.dir");
+    		//System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");
     		String projectPath = System.getProperty("user.dir");
-    		System.setProperty("webdriver.edge.driver", projectPath + "/src/test/resources/Drivers/msedgedriver_126.exe");
+     		System.setProperty("webdriver.chrome.driver", projectPath + "/src/test/resources/Drivers/chromedriver_126.exe");
+
+    		
     		//driver = new EdgeDriver();
     		//driver.close();
     	    //driver.quit();
