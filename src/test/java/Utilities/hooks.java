@@ -150,7 +150,7 @@ public class hooks {
  	}
     
     public ChromeDriver startBrowser_google_chrome_n() throws IOException {
-    	  //WebDriverManager.chromedriver().setup();
+    	  WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
           //options.addArguments("--no-sandbox");
           //options.addArguments("--disable-dev-shm-usage");
