@@ -154,7 +154,7 @@ public class hooks {
         ChromeOptions options = new ChromeOptions();
           //options.addArguments("--no-sandbox");
           //options.addArguments("--disable-dev-shm-usage");
-          options.addArguments("--headless");
+          //options.addArguments("--headless");
           driverw = new ChromeDriver(options);
           driverw.navigate().to("https://google.com");
           driverw.manage().window().maximize();
