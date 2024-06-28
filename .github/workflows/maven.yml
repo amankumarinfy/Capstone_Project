@@ -14,6 +14,17 @@ on:
   #pull_request:
    #branches: [ "master" ]  
   workflow_dispatch:
+   inputs:
+     browser:
+        type: choice
+        description: Which browser to test
+        required: true
+        options:
+          - chrome
+          - firefox
+          - edge
+
+  
   schedule:
     - cron: '00 04 * * *'
 
@@ -21,7 +32,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    container:
+      image: node:19
 
+    services:
+      selenium:
+        image: selenium/standalone-chrome
+        options: --shm-size=2gb
+    
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -34,11 +52,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-
-    - uses: browser-actions/setup-chrome@v1
-      with:
-       chrome-version: 126
-       install-dependencies: true
   
   
     - name: archive test results
