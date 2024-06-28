@@ -41,7 +41,7 @@ public class hooks {
 	
     EdgeDriver driver = null;
     ChromeDriver driverc = null;
-	WebDriver driverw;
+	WebDriver driverw=null;
     
     private Scenario takescreenshot;
 	
@@ -156,6 +156,7 @@ public class hooks {
           //options.addArguments("--disable-dev-shm-usage");
           options.addArguments("--headless");
           driverw = new ChromeDriver(options);
+          driverc = new ChromeDriver(options);
           driverw.navigate().to("https://google.com");
           driverw.manage().window().maximize();
           driverw.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
@@ -226,12 +227,12 @@ public class hooks {
 	public void i_take_a_screenshot() throws Throwable {	
 		try 
 			{
-        		if(this.driverw!=null)
+        		if(this.driverc!=null)
         			{
-        				byte[] screenshot = ((TakesScreenshot)driverw).getScreenshotAs(OutputType.BYTES);
+        				byte[] screenshot = ((TakesScreenshot)driverc).getScreenshotAs(OutputType.BYTES);
         				takescreenshot.embed(screenshot, "image/png");
         			}
-        	else if (this.driverw==null)
+        	else if (this.driverc==null)
         			{
         		
         			}
