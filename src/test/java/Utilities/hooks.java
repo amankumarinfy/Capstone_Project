@@ -149,7 +149,7 @@ public class hooks {
  		return driverc;
  	}
     
-    public ChromeDriver startBrowser_google_chrome_n() throws IOException {
+    public WebDriver startBrowser_google_chrome_n() throws IOException {
     	  WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
           //options.addArguments("--no-sandbox");
@@ -160,7 +160,7 @@ public class hooks {
           driverw.manage().window().maximize();
           driverw.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
     	  
-		return driverc;
+		return driverw;
  	}
     
     public EdgeDriver startedgeBrowser_google_edge() throws IOException {
